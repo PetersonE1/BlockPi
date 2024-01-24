@@ -1,0 +1,58 @@
+main {
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+  overflow:hidden;
+  height: 700px;
+}
+
+header {
+  background-color: green;
+  width: 100%;
+  display: flex;
+}
+
+h1 {
+  width: fit-content;
+  position: center;
+  margin: 0 auto 0 41%;
+  color: #fff;
+  font-size: 1.8em;
+  line-height: 2.4em;
+}
+
+.blockly-editor {
+  position: absolute;
+  top: 64px;
+  left: 0px;
+  height: 80%;
+  width: 100%;
+  background-color: #eee;
+}
+
+.maker > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 120px;
+  height: 140px;
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 140px;
+}
+
+.mdl-button {
+  margin: 0.65em 1em 0.6em auto;
+  float: right;
+  display: block;
+  color: white;
+  font-size: 1.2em;
+}
+
+.lft-button{
+	float: left;
+}

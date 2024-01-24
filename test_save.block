@@ -1,0 +1,135 @@
+{
+    "blocks": {
+        "languageVersion": 0,
+        "blocks": [
+            {
+                "type": "variables_set",
+                "id": "sK!vLa|:Dg:;whJ.nWCl",
+                "x": 217,
+                "y": 74,
+                "fields": {
+                    "VAR": {
+                        "id": "SSBm:57Z(d1@F[jB,[He"
+                    }
+                },
+                "inputs": {
+                    "VALUE": {
+                        "block": {
+                            "type": "math_number",
+                            "id": ":1+tO`ZY3iOps0!9=}h0",
+                            "fields": {
+                                "NUM": 0
+                            }
+                        }
+                    }
+                },
+                "next": {
+                    "block": {
+                        "type": "controls_whileUntil",
+                        "id": "2YM*-;0zMN`0F%j,A;2F",
+                        "fields": {
+                            "MODE": "WHILE"
+                        },
+                        "inputs": {
+                            "BOOL": {
+                                "block": {
+                                    "type": "logic_compare",
+                                    "id": "Yle!20@mrLTJ^t}l=IaM",
+                                    "fields": {
+                                        "OP": "LT"
+                                    },
+                                    "inputs": {
+                                        "A": {
+                                            "block": {
+                                                "type": "variables_get",
+                                                "id": "0X3@?s!@dcqI.AN6E/VD",
+                                                "fields": {
+                                                    "VAR": {
+                                                        "id": "SSBm:57Z(d1@F[jB,[He"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "B": {
+                                            "block": {
+                                                "type": "math_number",
+                                                "id": "GlBLf?2vE?l_;r=)#tW)",
+                                                "fields": {
+                                                    "NUM": 5
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "DO": {
+                                "block": {
+                                    "type": "math_change",
+                                    "id": "jE)AgtJ{NVTLa4o0wtkF",
+                                    "fields": {
+                                        "VAR": {
+                                            "id": "SSBm:57Z(d1@F[jB,[He"
+                                        }
+                                    },
+                                    "inputs": {
+                                        "DELTA": {
+                                            "shadow": {
+                                                "type": "math_number",
+                                                "id": "W.!jeb+:cMZ-]l^679gx",
+                                                "fields": {
+                                                    "NUM": 1
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": {
+                                        "block": {
+                                            "type": "write_debug",
+                                            "id": "7paHfCk!vihU$R~A.6?m",
+                                            "inputs": {
+                                                "VALUE": {
+                                                    "block": {
+                                                        "type": "variables_get",
+                                                        "id": "/fv@kh4Dkl=TZA}HeU}V",
+                                                        "fields": {
+                                                            "VAR": {
+                                                                "id": "SSBm:57Z(d1@F[jB,[He"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "next": {
+                            "block": {
+                                "type": "write_debug",
+                                "id": "r;i_6]4cZ=(}30AKK]c^",
+                                "inputs": {
+                                    "VALUE": {
+                                        "block": {
+                                            "type": "text",
+                                            "id": "S_d(K{x8oI17t*G)[#/e",
+                                            "fields": {
+                                                "TEXT": "All done!"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "variables": [
+        {
+            "name": "x",
+            "id": "SSBm:57Z(d1@F[jB,[He"
+        }
+    ]
+}

@@ -342,6 +342,50 @@ let Toolbox = {
             "categorystyle": "colour_category"
         },
         {
+            "kind": "CATEGORY",
+            "name": "GPIO",
+            "contents": [
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_pin_set"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_pin_get"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_state_enum"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_pwm_set"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_pwm_start"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_pwm_stop"
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "gpio_pwm_duty"
+                }
+            ]
+        },
+        {
+            "kind": "CATEGORY",
+            "name": "Control",
+            "contents": [
+                {
+                    "kind": "BLOCK",
+                    "type": "time_wait"
+                }
+            ]
+        },
+        {
             "kind": "SEP"
         },
         {

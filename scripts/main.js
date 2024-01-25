@@ -5,7 +5,35 @@
  */
 (function () {
     function toFile() {
-        let code = python.pythonGenerator.workspaceToCode(Blockly.getMainWorkspace());
+        let code = 
+`import RPi.GPIO as GPIO
+import time
+import math
+pwm_pins = []
+try:
+`;
+        code +=
+`  GPIO.setmode(GPIO.BOARD)
+  def getPinState(pin):
+    func = GPIO.gpio_function(pin)
+    if func == GPIO.UNKNOWN:
+      GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    if func == GPIO.IN:
+      return GPIO.input(pin)
+    else:
+      raise Exception(f"Pin {pin} not set to input")
+`
+        let lines = python.pythonGenerator.workspaceToCode(Blockly.getMainWorkspace()).match(/[^\r\n]+/g);
+        for (line in lines)
+            code += "  " + lines[line] + '\n';
+        code +=
+`except (KeyboardInterrupt):
+  pass
+finally:
+  for pin in pwm_pins:
+    pin.stop()
+  GPIO.cleanup()
+`;
         console.log(code);
 
         var file = new Blob([code]);

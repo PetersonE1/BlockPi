@@ -1,5 +1,27 @@
 Blockly.defineBlocksWithJsonArray([
     {
+        "type": "gpio_pin_define",
+        "message0": "Define Pin %1 as %2",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "PIN",
+            },
+            {
+                "type": "field_dropdown",
+                "name": "TYPE",
+                "options": [
+                    ["Input", "IN"],
+                    ["Output", "OUT"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 160
+    },
+    {
         "type": "gpio_pin_set",
         "message0": "Set Pin %1 to %2",
         "args0": [
@@ -118,14 +140,27 @@ Blockly.defineBlocksWithJsonArray([
     }
 ]);
 
+python.pythonGenerator.forBlock['gpio_pin_define'] = function (block) {
+    var pin = block.getFieldValue('PIN');
+    var state = block.getFieldValue("TYPE");
+
+    if (state == "IN") {
+        return `GPIO.setup(${pin}, GPIO.IN, pull_up_down=GPIO.PUD_UP)\n`;
+    }
+
+    if (state == "OUT") {
+        return `GPIO.setup(${pin}, GPIO.OUT)\n`;
+    }
+
+    return "";
+};
+
 python.pythonGenerator.forBlock['gpio_pin_set'] = function (block) {
     var pin = block.getFieldValue('PIN');
     var state = block.getFieldValue("STATE");
 
     var code =
 `func = GPIO.gpio_function(${pin})
-if func == GPIO.UNKNOWN:
-  GPIO.setup(${pin}, GPIO.OUT)
 if func == GPIO.OUT:
   GPIO.output(${pin}, ${state})
 else:
@@ -137,7 +172,7 @@ else:
 
 python.pythonGenerator.forBlock['gpio_pin_get'] = function (block) {
     var pin = block.getFieldValue("PIN");
-
+    
     return [`getPinState(${pin})`, python.Order.NONE];
 };
 

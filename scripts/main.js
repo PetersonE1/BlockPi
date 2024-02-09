@@ -14,15 +14,10 @@ try:
 `;
         code +=
 `  GPIO.setmode(GPIO.BOARD)
-  def getPinState(pin):
-    func = GPIO.gpio_function(pin)
-    if func == GPIO.UNKNOWN:
-      GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    if func == GPIO.IN:
-      return GPIO.input(pin)
-    else:
-      raise Exception(f"Pin {pin} not set to input")
 `
+        for (func in funcsList) {
+            code += funcsList[func];
+        }
         let lines = python.pythonGenerator.workspaceToCode(Blockly.getMainWorkspace()).match(/[^\r\n]+/g);
         for (line in lines)
             code += "  " + lines[line] + '\n';

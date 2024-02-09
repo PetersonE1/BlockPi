@@ -347,6 +347,10 @@ let Toolbox = {
             "contents": [
                 {
                     "kind": "BLOCK",
+                    "type": "gpio_pin_define"
+                },
+                {
+                    "kind": "BLOCK",
                     "type": "gpio_pin_set"
                 },
                 {

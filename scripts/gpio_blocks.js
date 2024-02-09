@@ -64,9 +64,8 @@ Blockly.defineBlocksWithJsonArray([
                 "type": "field_dropdown",
                 "name": "STATE",
                 "options": [
-                    ["ON", "GPIO.LOW"],
-                    ["OFF", "GPIO.HIGH"],
-                    ["UNSET", "GPIO.UNKNOWN"]
+                    ["ON", "GPIO.HIGH"],
+                    ["OFF", "GPIO.LOW"],
                 ]
             }
         ],
